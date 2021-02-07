@@ -11,11 +11,11 @@ function main() {
   try {
     console.log(env.GITHUB_REF);
     console.log(env.GITHUB_SHA);
-    const tagOrBranch = env.GITHUB_REF.split(fs.sep).unshift()[0];
+    const tagOrBranch = `${env.GITHUB_REF}`.split(fs.sep).unshift()[0];
     const sha =
       env.INPUT_SHA_LENGTH > 0
-        ? env.GITHUB_SHA.slice(0, env.INPUT_SHA_LENGTH)
-        : env.GITHUB_SHA;
+        ? `${env.GITHUB_SHA}`.slice(0, env.INPUT_SHA_LENGTH)
+        : `${env.GITHUB_SHA}`;
 
     console.log(tagOrBranch);
     console.log(sha);
