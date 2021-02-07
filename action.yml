@@ -5,9 +5,6 @@ runs:
   using: 'node12'
   main: 'main.js'
 inputs:
-  token:
-    description: 'GitHub Token to create and delete refs (GITHUB_TOKEN)'
-    required: false 
   sha_length:
     description: 'the length of git sha, default is full length'
     required: false
