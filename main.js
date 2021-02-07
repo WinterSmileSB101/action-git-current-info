@@ -9,11 +9,16 @@ function fail(message, exitCode = 1) {
 
 function main() {
   try {
+    console.log(env.GITHUB_REF);
+    console.log(env.GITHUB_SHA);
     const tagOrBranch = env.GITHUB_REF.split(fs.sep).unshift()[0];
     const sha =
       env.INPUT_SHA_LENGTH > 0
         ? env.GITHUB_SHA.slice(0, env.INPUT_SHA_LENGTH)
         : env.GITHUB_SHA;
+
+    console.log(tagOrBranch);
+    console.log(sha);
 
     //Setting the output and a environment variable to new build number...
     //fs.writeFileSync('$GITHUB_ENV', `BUILD_NUMBER=${nextBuildNumber}`);
