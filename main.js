@@ -11,7 +11,7 @@ function fail(message, exitCode = 1) {
 function main() {
   try {
     console.log(`${env.GITHUB_REF}`.split(path.sep))
-    const tagOrBranch = `${env.GITHUB_REF}`.split(path.sep).unshift();
+    const tagOrBranch = `${env.GITHUB_REF}`.split(path.sep).reverse()[0];
     const sha =
       env.INPUT_SHA_LENGTH > 0
         ? `${env.GITHUB_SHA}`.slice(0, env.INPUT_SHA_LENGTH)
