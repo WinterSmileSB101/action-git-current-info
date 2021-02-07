@@ -12,8 +12,6 @@ inputs:
 outputs:
   tag_or_branch:
     description: 'current tag/branch'
-  current_sha:
-    description: 'current sha'
 
 branding:
   icon: 'hash'
