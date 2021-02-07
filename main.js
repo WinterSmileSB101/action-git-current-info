@@ -9,7 +9,7 @@ function fail(message, exitCode = 1) {
 
 function main() {
   try {
-    console.log(`${env.GITHUB_REF}`.split(path.sep));
+    //console.log(`${env.GITHUB_REF}`.split(path.sep));
     console.log(path.sep);
     const tagOrBranch = `${env.GITHUB_REF}`.split(path.sep).unshift()[0];
     const sha =
