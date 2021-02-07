@@ -10,9 +10,7 @@ function fail(message, exitCode = 1) {
 
 function main() {
   try {
-    console.log(`${env.GITHUB_REF}`.split(path.sep));
-    console.log(path.sep);
-    const tagOrBranch = `${env.GITHUB_REF}`.split(path.sep).unshift()[0];
+    const tagOrBranch = `${env.GITHUB_REF}`.split(path.sep).unshift();
     const sha =
       env.INPUT_SHA_LENGTH > 0
         ? `${env.GITHUB_SHA}`.slice(0, env.INPUT_SHA_LENGTH)
@@ -26,7 +24,8 @@ function main() {
     fs.writeFileSync(process.env.GITHUB_ENV, `TAG_OR_BRANCH=${tagOrBranch}`);
     fs.writeFileSync(process.env.GITHUB_ENV, `CURRENT_SHA=${sha}`);
 
-    console.log(`::set-output name=tagOrBranch::${nextBuildNumber}`);
+    console.log(`::set-output name=tagOrBranch::${tagOrBranch}`);
+    console.log(`::set-output name=currentSha::${sha}`);
     //Save to file so it can be used for next jobs...
     fs.writeFileSync("TAG_OR_BRANCH", tagOrBranch.toString());
     fs.writeFileSync("CURRENT_SHA", sha.toString());
