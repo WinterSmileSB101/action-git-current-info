@@ -1,5 +1,6 @@
 //Trying to avoid any npm installs or anything that takes extra time...
 const fs = require("fs"),
+  path = require("path"),
   env = process.env;
 
 function fail(message, exitCode = 1) {
