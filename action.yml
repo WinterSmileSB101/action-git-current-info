@@ -1,0 +1,23 @@
+name: 'Get Current Tag/Branch SHA'
+description: 'Get Current Tag/Branch and SHA for workflow runs'
+author: 'SmileSB101'
+runs:
+  using: 'node12'
+  main: 'main.js'
+inputs:
+  token:
+    description: 'GitHub Token to create and delete refs (GITHUB_TOKEN)'
+    required: false 
+  sha_length:
+    description: 'the length of git sha, default is full length'
+    required: false
+
+outputs:
+  tag_or_branch:
+    description: 'current tag/branch'
+  current_sha:
+    description: 'current sha'
+
+branding:
+  icon: 'hash'
+  color: 'green'
