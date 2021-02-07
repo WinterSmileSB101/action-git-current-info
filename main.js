@@ -23,13 +23,13 @@ function main() {
     //Setting the output and a environment variable to new build number...
     //fs.writeFileSync('$GITHUB_ENV', `BUILD_NUMBER=${nextBuildNumber}`);
     fs.writeFileSync(process.env.GITHUB_ENV, `TAG_OR_BRANCH=${tagOrBranch}`);
-    fs.writeFileSync(process.env.GITHUB_ENV, `CURRENT_SHA=${sha}`);
+    //fs.writeFileSync(process.env.GITHUB_ENV, `CURRENT_SHA=${sha}`);
 
     console.log(`::set-output name=tagOrBranch::${tagOrBranch}`);
     console.log(`::set-output name=currentSha::${sha}`);
     //Save to file so it can be used for next jobs...
     fs.writeFileSync("TAG_OR_BRANCH", tagOrBranch.toString());
-    fs.writeFileSync("CURRENT_SHA", sha.toString());
+    //fs.writeFileSync("CURRENT_SHA", sha.toString());
   } catch (error) {
     fail(`ERROR: get tag or branch error. ${JSON.stringify(error)}`);
   }
