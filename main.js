@@ -10,6 +10,7 @@ function fail(message, exitCode = 1) {
 
 function main() {
   try {
+    console.log(`${env.GITHUB_REF}`.split(path.sep))
     const tagOrBranch = `${env.GITHUB_REF}`.split(path.sep).unshift();
     const sha =
       env.INPUT_SHA_LENGTH > 0
